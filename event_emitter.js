@@ -18,7 +18,7 @@ const event = class {
             this.#once_events.get(name)(args);
             this.#once_events.delete(name);
         }
-        else this.#on_events.get(name)(args);
+        else if (this.#on_events.has(name)) this.#on_events.get(name)(args);
     }
 }
 
